@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
@@ -7,8 +7,26 @@ import ProductList from "./components/ProductList";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart"; // no te olvides de importar
 import Footer from "./components/Footer";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false); // 👈 NUEVO estado para animar salida
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFadeOut(true); // activamos fadeout
+      setTimeout(() => {
+        setLoading(false); // después de fadeout, sacamos loading
+      }, 500); // 0.5 segundos de transición
+    }, 5000); // duración de la intro (podés ajustar)
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <LoadingScreen fadeOut={fadeOut} />; // 👈 le pasamos el estado de fade
+  }
   return (
     <BrowserRouter>
       <NavBar />
