@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
 import logo from "../assets/images/hype-gear-bco.png"; // 👉 Importar imagen
+import mastercardLogo from "../assets/images/ico-mastercard.png"; // 👉 Importar imagen
+import mpLogo from "../assets/images/ico-mercadopago.png"; // 👉 Importar imagen
+import visaLogo from "../assets/images/ico-visa.png"; // 👉 Importar imagen
+import cashLogo from "../assets/images/ico-billete.png"; // 👉 Importar imagen
 
 export default function Footer() {
   return (
@@ -69,7 +73,13 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-
+       {/* Métodos de pago */}
+          <div className="mt-8 w-full flex justify-center gap-6 items-center flex-wrap">
+            <img src={visaLogo} alt="Visa" className="h-6 object-contain opacity-80 hover:opacity-100 transition" />
+            <img src={mastercardLogo} alt="MasterCard" className="h-6 object-contain opacity-80 hover:opacity-100 transition" />
+            <img src={mpLogo} alt="Mercado Pago" className="h-6 object-contain opacity-80 hover:opacity-100 transition" />
+            <img src={cashLogo} alt="Efectivo" className="h-6 object-contain opacity-80 hover:opacity-100 transition" />
+          </div>
       {/* Línea divisoria */}
       <div className="w-full h-px bg-gray-700 my-8"></div>
 

@@ -1,10 +1,13 @@
 import { useCart } from "../hooks/useCart"; // nuevo
 import { Link, useNavigate} from "react-router-dom";
+import Checkout from "../components/Checkout";
+import { useState } from "react";
 
 export default function Cart() {
   const { cart, removeFromCart, clearCart } = useCart();
   const navigate = useNavigate(); // nuevo
   const totalPrice = cart.reduce((acc, product) => acc + product.price, 0);
+  const [loading, setLoading] = useState(false);
 
   if (cart.length === 0) {
     return (
@@ -60,16 +63,29 @@ export default function Cart() {
             Total: ${totalPrice}
           </p>
           <div className="flex gap-4">
+          <button
+            onClick={clearCart}
+            className="text-sm text-gray-500 underline underline-offset-4 hover:text-gray-700 transition"
+          >
+            Vaciar carrito
+          </button>
             <button
-              onClick={clearCart}
-              className="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition"
+              onClick={() => {
+                setLoading(true);
+                setTimeout(() => navigate("/checkout"), 2000);
+              }}
+              disabled={loading}
+              className={`relative px-6 py-3 w-48 font-medium rounded-lg transition-all duration-300
+                ${loading ? "bg-gray-300 cursor-not-allowed" : "bg-black text-white hover:bg-gray-800"}
+              `}
             >
-              Vaciar carrito
-            </button>
-            <button
-              className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition"
-            >
-              Finalizar compra
+              {loading ? (
+                <div className="w-full h-1 absolute bottom-0 left-0 bg-white/20 overflow-hidden rounded-b">
+                  <div className="h-full bg-white animate-loading-bar"></div>
+                </div>
+              ) : (
+                "Finalizar compra"
+              )}
             </button>
           </div>
         </div>

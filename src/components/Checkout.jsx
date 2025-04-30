@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useCart } from "../hooks/useCart";
 
 export default function Checkout() {
+  const [loading, setLoading] = useState(false);
   const { cart, clearCart } = useCart();
 
   const [form, setForm] = useState({
@@ -18,28 +19,33 @@ export default function Checkout() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setLoading(true);
+  
     const message = `
-🛒 *Nueva compra desde Hype Gear*
-👤 Nombre: ${form.name}
-📧 Email: ${form.email}
-🏠 Dirección: ${form.address}
-
-🧾 Pedido:
-${cart.map((item) => `• ${item.title} x${item.quantity || 1}`).join("\n")}
-
-💵 Total: $${total.toFixed(2)}
-
-📦 ¡Listo para coordinar el pago y el envío!
-`;
-
-    const phoneNumber = "5491123456789"; // <-- Cambiá este número por el tuyo (con código país sin +)
+  🛒 *Nueva compra desde Hype Gear*
+  👤 Nombre: ${form.name}
+  📧 Email: ${form.email}
+  🏠 Dirección: ${form.address}
+  
+  🧾 Pedido:
+  ${cart.map((item) => `• ${item.title} x${item.quantity || 1}`).join("\n")}
+  
+  💵 Total: $${total.toFixed(2)}
+  
+  📦 ¡Hola! Ya hice la compra y quiero coordinar el pago y el envío.`;
+  
+    const phoneNumber = "5491123868058";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-    clearCart();
-    window.location.href = whatsappURL;
+  
+    // Abrimos WhatsApp en otra pestaña
+    window.open(whatsappURL, "_blank");
+  
+    // Limpiamos el carrito y redirigimos después de un pequeño delay
+    setTimeout(() => {
+      clearCart();
+      window.location.href = "/gracias"; // tu página de agradecimiento
+    }, 2000);
   };
-
   return (
     <section className="min-h-screen pt-24 px-6 bg-gray-50">
       <h2 className="text-2xl font-bold mb-6">Finalizar compra</h2>
@@ -89,11 +95,23 @@ ${cart.map((item) => `• ${item.title} x${item.quantity || 1}`).join("\n")}
         </div>
 
         <button
-          type="submit"
-          className="mt-6 bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition"
-        >
-          Confirmar y coordinar por WhatsApp
+              type="submit"
+              disabled={loading}
+              className={`relative w-full py-3 rounded-lg font-medium transition-all duration-300 ${
+                loading
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-black text-white hover:bg-gray-800"
+              }`}
+            >
+              {loading ? (
+                <div className="w-full h-1 absolute bottom-0 left-0 bg-white/20 overflow-hidden rounded-b">
+                  <div className="h-full bg-white animate-loading-bar"></div>
+                </div>
+              ) : (
+                "Confirmar y coordinar por WhatsApp"
+              )}
         </button>
+
       </form>
     </section>
   );

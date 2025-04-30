@@ -8,6 +8,8 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart"; // no te olvides de importar
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
+import Checkout from './components/Checkout';
+import ThankYou from './components/ThankYou';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +36,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<ProductList />} />
         <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/cart" element={<Cart />} /> {/* Nueva ruta */}
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/gracias" element={<ThankYou />} />
+ {/* Nueva ruta */}
         {/* Más rutas después: Catálogo, Carrito, etc. */}
       </Routes>
       <Footer />

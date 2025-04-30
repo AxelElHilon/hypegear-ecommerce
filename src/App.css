@@ -8,3 +8,20 @@
       transform: translateX(-100%);
     }
   }
+
+
+  @layer utilities {
+    .animate-loading-bar {
+      animation: loadingBar 1.8s ease-out forwards;
+    }
+  
+    @keyframes loadingBar {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0%);
+      }
+    }
+  }
+  
