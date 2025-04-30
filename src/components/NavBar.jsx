@@ -13,7 +13,7 @@ export default function Navbar() {
        {/* Banner scrollable solo con Tailwind */}
        <div className="w-full bg-black overflow-hidden relative text-white text-sm py-2">
        <div className="whitespace-nowrap animate-[scroll_20s_linear_infinite] px-4">
-          🔥 Nueva temporada disponible - Renová tu estilo 🔥 🔥 Nueva temporada disponible - Renová tu estilo 🔥🔥 Nueva temporada disponible - Renová tu estilo 🔥🔥 Nueva temporada disponible - Renová tu estilo 🔥🔥 Nueva temporada disponible - Renová tu estilo 🔥🔥 Nueva temporada disponible - Renová tu estilo 🔥🔥 Nueva temporada disponible - Renová tu estilo 🔥🔥 Nueva temporada disponible - Renová tu estilo 🔥
+          🔥 15% OFF VIERNES - SABADOS - DOMINGOS 🔥 
         </div>
       </div>
 
