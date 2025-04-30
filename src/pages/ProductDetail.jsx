@@ -1,5 +1,5 @@
 import { useParams, useNavigate} from "react-router-dom";
-import { useCart } from "../context/CartContext"; // importamos el carrito
+import { useCart } from "../hooks/useCart"; // nuevo// importamos el carrito
 import products from "../data/products";
 
 export default function ProductDetail() {

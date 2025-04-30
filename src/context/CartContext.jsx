@@ -1,32 +1,29 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState } from "react";
 
-// Creamos el contexto
-const CartContext = createContext();
+export const CartContext = createContext();
 
-// Proveedor del contexto
-export function CartProvider({ children }) {
+export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]);
+    setCart((prev) => [...prev, product]);
   };
 
   const removeFromCart = (id) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+    setCart((prev) => {
+      const idx = prev.findIndex((item) => item.id === id);
+      if (idx < 0) return prev;
+      const next = [...prev];
+      next.splice(idx, 1);
+      return next;
+    });
   };
 
-  const clearCart = () => {
-    setCart([]);
-  };
+  const clearCart = () => setCart([]);
 
   return (
     <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
-}
-
-// Hook personalizado para usarlo más fácil
-export function useCart() {
-  return useContext(CartContext);
 }

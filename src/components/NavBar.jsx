@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../context/CartContext"; // nuevo
+import { useCart } from "../hooks/useCart"; // nuevo
 import logo from "../assets/images/hype-gear-logo.png"; // 👉 Importar imagen
+import { FaShoppingCart } from "react-icons/fa";
+import "./NavBar.css";
 
 export default function Navbar() {
   const { cart } = useCart(); // usamos el carrito
@@ -34,14 +36,12 @@ export default function Navbar() {
           <Link to="/catalogo" className="text-gray-600 hover:text-gray-900">
             Catálogo
           </Link>
-          <Link to="/cart" className="relative text-gray-600 hover:text-gray-900">
-            🛒
-            {cart.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-                {cart.length}
-              </span>
-            )}
-          </Link>
+          <Link to="/cart" className="nav-cart">
+        <FaShoppingCart size={20} />
+        {cart.length > 0 && (
+          <span className="cart-count">{cart.length}</span>
+        )}
+      </Link>
         </nav>
       </div>
     </header>

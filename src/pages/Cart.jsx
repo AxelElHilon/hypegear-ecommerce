@@ -1,4 +1,4 @@
-import { useCart } from "../context/CartContext";
+import { useCart } from "../hooks/useCart"; // nuevo
 import { Link, useNavigate} from "react-router-dom";
 
 export default function Cart() {
