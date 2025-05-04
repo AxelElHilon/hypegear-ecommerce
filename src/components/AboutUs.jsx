@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function AboutUs() {
     return (
       <section className="bg-white py-16 px-4 sm:px-8 lg:px-24 text-center">
