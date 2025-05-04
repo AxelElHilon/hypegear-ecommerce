@@ -1,0 +1,31 @@
+export default function AboutUs() {
+    return (
+      <section className="bg-white py-16 px-4 sm:px-8 lg:px-24 text-center">
+        <h2 className="text-3xl font-bold text-gray-800 mb-6">👋 Sobre Nosotros</h2>
+        
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
+          <img
+            src="/src/assets/about-us.png" // cambiá esto por la imagen que quieras
+            alt="Sobre Nosotros"
+            className="w-80 h-auto object-contain drop-shadow-xl"
+          />
+          
+          <div className="text-left">
+            <p className="text-gray-700 text-lg leading-relaxed mb-4">
+              Somos un pequeño equipo apasionado por la moda urbana. Creamos y seleccionamos prendas con personalidad, estilo y calidad.
+            </p>
+            <p className="text-gray-600">
+              Cada producto refleja nuestra esencia: simple, auténtica y en constante movimiento. Si buscás destacarte con actitud, estás en el lugar correcto. 💥
+            </p>
+            <a
+              href="#contacto"
+              className="inline-block mt-6 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition"
+            >
+              Contactanos
+            </a>
+          </div>
+        </div>
+      </section>
+    );
+  }
+  
