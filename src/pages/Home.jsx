@@ -74,36 +74,42 @@ export default function Home() {
   >
     {featuredProducts.map((product, index) => (
       <div
-        key={product.id}
-        className={`bg-white shadow-md rounded-lg overflow-hidden transform transition-all duration-700
-          ${showProducts ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
-        `}
-        style={{ transitionDelay: `${index * 150}ms` }}
-      >
-        <img
-          src={product.image}
-          alt={product.title}
-          className="w-full h-60 object-cover"
-        />
-        <div className="p-4">
-          <h3 className="font-semibold text-gray-800 mb-2">{product.title}</h3>
-          <p className="text-sm text-gray-600 mb-2">{product.description}</p>
-          <div className="flex items-center justify-center gap-2 mb-4">
-            {product.oldPrice && (
-              <span className="line-through text-gray-400 text-sm">
-                ${product.oldPrice}
-              </span>
-            )}
-            <span className="text-xl font-bold text-black">${product.price}</span>
-          </div>
-          <Link
-            to={`/product/${product.id}`}
-            className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition inline-block"
-          >
-            Ver más
-          </Link>
-        </div>
-      </div>
+  key={product.id}
+  className={`bg-gradient-to-br from-white to-gray-100 shadow-2xl border border-gray-200 rounded-xl overflow-visible relative p-4 group transform transition-all duration-700
+    ${showProducts ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+    ${index % 2 === 0 ? (showProducts ? "translate-x-0" : "-translate-x-6") : (showProducts ? "translate-x-0" : "translate-x-6")}
+  `}
+  style={{ transitionDelay: `${index * 150}ms` }}
+>
+  <div className="relative h-48 flex justify-center items-start">
+    <img
+      src={product.image}
+      alt={product.title}
+      className="w-48 h-48 object-contain absolute -top-6 z-10 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 drop-shadow-xl"
+    />
+  </div>
+
+  <div className="pt-20 text-center">
+    <h3 className="font-semibold text-gray-800 mb-2">{product.title}</h3>
+    <p className="text-sm text-gray-600 mb-2">{product.description}</p>
+    <div className="flex items-center justify-center gap-2 mb-4">
+      {product.oldPrice && (
+        <span className="line-through text-gray-400 text-sm">
+          ${product.oldPrice}
+        </span>
+      )}
+      <span className="text-xl font-bold text-black">${product.price}</span>
+    </div>
+    <Link
+      to={`/product/${product.id}`}
+      className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition inline-block"
+    >
+      Ver más
+    </Link>
+  </div>
+</div>
+
+  
     ))}
   </div>
 

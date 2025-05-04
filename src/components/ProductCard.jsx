@@ -2,13 +2,15 @@ import { Link } from "react-router-dom";
 
 export default function ProductCard({ product }) {
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition-transform">
-      <img
-        src={product.image}
-        alt={product.title}
-        className="w-full h-60 object-cover"
-      />
-      <div className="p-4">
+    <div className="bg-white shadow-2xl rounded-xl overflow-visible relative p-4 group transition-transform hover:scale-105">
+      <div className="relative h-48 flex justify-center items-start">
+        <img
+          src={product.image}
+          alt={product.title}
+         className="w-52 h-52 object-contain absolute -top-10 z-10 transition-transform duration-300 group-hover:scale-110 drop-shadow-lg"
+        />
+      </div>
+      <div className="pt-20 text-center">
         <h2 className="text-lg font-semibold text-gray-800">{product.title}</h2>
         <p className="text-gray-600 mt-2">${product.price}</p>
         <Link
