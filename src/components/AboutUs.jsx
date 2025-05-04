@@ -15,7 +15,7 @@ export default function AboutUs() {
         
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
           <img
-            src="/src/assets/about-us.png" // cambiá esto por la imagen que quieras
+            src={Logo}// cambiá esto por la imagen que quieras
             alt="Sobre Nosotros"
             className="w-80 h-auto object-contain drop-shadow-xl"
           />
