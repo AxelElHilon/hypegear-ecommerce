@@ -83,9 +83,11 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Slogan final */}
-      <div className="mt-20 py-10 w-full bg-black text-white flex flex-col items-center justify-center">
-        <h3 className="text-2xl font-semibold">Tu estilo no se compra. Se crea. ⚡</h3>
+           {/* Slogan final */}
+      <div className="mt-20 py-10 w-full bg-black text-white flex flex-col items-center justify-center px-4 text-center">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-semibold leading-snug max-w-xl">
+          Tu estilo no se compra. Se crea. ⚡
+        </h3>
       </div>
 
     </section>
