@@ -3,14 +3,10 @@ import Logo from "../assets/images/hype-gear-logo.png";
 export default function AboutUs() {
     return (
       <section id="about" className="bg-white py-50 px-4 sm:px-8 lg:px-24 text-center scroll-mt-24">
-           <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl font-bold text-gray-800 mb-6"
-      >
+       <h2 className="text-3xl font-bold text-gray-800 mb-6">
         👋 Sobre Nosotros
-      </motion.h2>
+      </h2>
+
         
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
           <img
