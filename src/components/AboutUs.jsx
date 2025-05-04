@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-
+import Logo from "../assets/images/hype-gear-logo.png";
+ // Asegúrate de que la ruta sea correcta
 export default function AboutUs() {
     return (
-      <section id="about" className="bg-white py-40 px-4 sm:px-8 lg:px-24 text-center scroll-mt-24">
+      <section id="about" className="bg-white py-24 px-4 sm:px-8 lg:px-24 text-center scroll-mt-24">
            <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -14,7 +15,7 @@ export default function AboutUs() {
         
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
           <img
-            src="/src/assets/images/hype-gear-logo.png" // cambiá esto por la imagen que quieras
+            src="/src/assets/about-us.png" // cambiá esto por la imagen que quieras
             alt="Sobre Nosotros"
             className="w-80 h-auto object-contain drop-shadow-xl"
           />
