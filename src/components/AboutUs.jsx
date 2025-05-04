@@ -5,7 +5,7 @@ export default function AboutUs() {
         
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
           <img
-            src="/src/assets/about-us.png" // cambiá esto por la imagen que quieras
+            src="/src/assets/images/hype-gear-logo.png" // cambiá esto por la imagen que quieras
             alt="Sobre Nosotros"
             className="w-80 h-auto object-contain drop-shadow-xl"
           />
@@ -18,11 +18,14 @@ export default function AboutUs() {
               Cada producto refleja nuestra esencia: simple, auténtica y en constante movimiento. Si buscás destacarte con actitud, estás en el lugar correcto. 💥
             </p>
             <a
-              href="#contacto"
+              href="https://wa.me/5491123868058?text=Hola%20me%20interesa%20saber%20más%20sobre%20sus%20productos"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block mt-6 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition"
             >
-              Contactanos
+              Contactanos por WhatsApp
             </a>
+
           </div>
         </div>
       </section>
