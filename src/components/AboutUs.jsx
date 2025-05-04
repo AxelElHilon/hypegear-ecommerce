@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Logo from "../assets/images/hype-gear-logo.png";
  // Asegúrate de que la ruta sea correcta
 export default function AboutUs() {
