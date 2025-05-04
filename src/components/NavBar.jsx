@@ -36,6 +36,9 @@ export default function Navbar() {
           <Link to="/catalogo" className="text-gray-600 hover:text-gray-900">
             Catálogo
           </Link>
+          <Link to="/sobre-nosotros" className="text-gray-600 hover:text-gray-900">
+            Sobre Nosotros
+          </Link>
           <Link to="/cart" className="nav-cart">
         <FaShoppingCart size={20} />
         {cart.length > 0 && (
