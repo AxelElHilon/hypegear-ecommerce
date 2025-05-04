@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
 import Checkout from './components/Checkout';
 import ThankYou from './components/ThankYou';
+import AboutUs from "./components/AboutUs";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -35,6 +36,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<ProductList />} />
+        <Route path="/sobre-nosotros" element={<AboutUs />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
