@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function AboutUs() {
     return (
-      <section id="about" className="bg-white py-24 px-4 sm:px-8 lg:px-24 text-center scroll-mt-24">
+      <section id="about" className="bg-white py-40 px-4 sm:px-8 lg:px-24 text-center scroll-mt-24">
            <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
