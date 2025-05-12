@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Cart() {
   const { cart, removeFromCart, clearCart } = useCart();
   const navigate = useNavigate(); // nuevo
-  const totalPrice = cart.reduce((acc, product) => acc + product.price, 0);
+  const totalPrice = cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
   const [loading, setLoading] = useState(false);
 
   if (cart.length === 0) {
@@ -43,10 +43,11 @@ export default function Cart() {
           <div key={index} className="flex items-center justify-between bg-white p-4 rounded-lg shadow-md">
             <div className="flex items-center gap-4">
               <img src={product.image} alt={product.title} className="w-20 h-20 object-cover rounded-md" />
-              <div>
-                <h3 className="font-semibold text-gray-800">{product.title}</h3>
-                <p className="text-gray-600">${product.price}</p>
-              </div>
+             <div>
+  <h3 className="font-semibold text-gray-800">{product.title}</h3>
+  <p className="text-gray-600">Cantidad: {product.quantity}</p>
+  <p className="text-gray-600">Subtotal: ${product.price * product.quantity}</p>
+</div>
             </div>
 
             <button
